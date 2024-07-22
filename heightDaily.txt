@@ -1,0 +1,20 @@
+class Solution {
+public:
+    bool static compare(pair<string, int>& p1, pair<string, int>& p2) {
+        return p1.second > p2.second;
+    }
+    vector<string> sortPeople(vector<string>& names, vector<int>& heights) {
+      map<int,string> records;
+      vector<string> ans;
+      for(int i=0;i<names.size();i++){
+        records[heights[i]]=names[i];
+      }
+      //mapping like 12=>tom is done
+      sort(heights.rbegin(), heights.rend());
+      for(int i=0;i<heights.size();i++){
+        ans.push_back(records[heights[i]]);
+      }
+      return ans;
+      
+    }
+};
